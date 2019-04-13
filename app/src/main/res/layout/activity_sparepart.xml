@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/sparepartImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imageViewAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/ic_employee" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/buttonInsert"
+                android:layout_width="99dp"
+                android:layout_height="34dp"
+                android:layout_below="@+id/sparepartImg"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:text="Insert"
+                android:visibility="invisible" />
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="415dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/etKode"
+                    android:layout_toStartOf="@+id/etKode"
+                    android:text="Kode:"
+                    android:textSize="19dp" />
+
+                <EditText
+                    android:id="@+id/etPenempatan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/etStok"
+                    android:layout_toEndOf="@+id/textView3"
+                    android:ems="10"
+                    android:hint="Penempatan"
+                    android:inputType="textPersonName" />
+
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/etStokMinimal"
+                    android:text="Tipe"
+                    android:textSize="19dp" />
+
+                <EditText
+                    android:id="@+id/etKode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:ems="10"
+                    android:hint="Kode"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/etNama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/etKode"
+                    android:ems="10"
+                    android:hint="Nama"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/etMerk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/etNama"
+                    android:ems="10"
+                    android:hint="Merk"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/etHargaBeli"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/etMerk"
+                    android:ems="10"
+                    android:hint="HB"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/etHargaJual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/etKode"
+                    android:layout_below="@+id/etHargaBeli"
+                    android:ems="10"
+                    android:hint="HJ"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/etStok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/etHargaJual"
+                    android:ems="10"
+                    android:hint="Stok"
+                    android:inputType="textPersonName" />
+
+                <Spinner
+                    android:id="@+id/spinnerTipe"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@+id/textView10"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="invisible" />
+
+
+                <EditText
+                    android:id="@+id/etStokMinimal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/etPenempatan"
+                    android:ems="10"
+                    android:hint="Stok Minimal"
+                    android:inputType="textImeMultiLine|textPersonName" />
+
+                <EditText
+                    android:id="@+id/etTipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@+id/textView10"
+                    android:ems="10"
+                    android:hint="Stok Minimal"
+                    android:inputType="textImeMultiLine|textPersonName"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="106dp"
+                    android:layout_height="24dp"
+                    android:layout_alignBaseline="@+id/etStokMinimal"
+                    android:layout_alignParentStart="true"
+                    android:text="Stok Min"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="106dp"
+                    android:layout_height="24dp"
+                    android:layout_alignBaseline="@+id/etPenempatan"
+                    android:layout_toStartOf="@+id/etKode"
+                    android:text="Penempatan:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="106dp"
+                    android:layout_height="24dp"
+                    android:layout_alignBaseline="@+id/etStok"
+                    android:layout_toStartOf="@+id/etKode"
+                    android:text="Stok:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="106dp"
+                    android:layout_height="24dp"
+                    android:layout_alignBaseline="@+id/etHargaJual"
+                    android:layout_toStartOf="@+id/etKode"
+                    android:text="Harga Jual:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="106dp"
+                    android:layout_height="24dp"
+                    android:layout_alignBaseline="@+id/etHargaBeli"
+                    android:layout_toStartOf="@+id/etKode"
+                    android:text="Harga Beli:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/etMerk"
+                    android:layout_toStartOf="@+id/etKode"
+                    android:text="Merk:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/etNama"
+                    android:layout_toStartOf="@+id/etKode"
+                    android:text="Nama:"
+                    android:textSize="19dp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnEditSparepart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:text="Edit"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/btnCreate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:text="Create"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
