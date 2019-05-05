@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="161dp"
+        android:layout_marginBottom="181dp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:layout_height="42dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="179dp"
+        android:layout_marginTop="214dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -42,7 +42,9 @@
         android:id="@+id/txtPassword"
         android:layout_width="285dp"
         android:layout_height="41dp"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="292dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -50,5 +52,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewUser"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="125dp"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:text="Bukan Sebagai Admin? Klik Disini" />
 
 </RelativeLayout>

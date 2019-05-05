@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,7 +15,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.b_laundry.p3l.p3l.R;
+import com.b_laundry.p3l.p3l.adapter.SupplierAdapter;
 import com.b_laundry.p3l.p3l.api.RetrofitClient;
+import com.b_laundry.p3l.p3l.models.Supplier;
+import com.b_laundry.p3l.p3l.models.SupplierResponse;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -33,14 +37,13 @@ public class AdminSupplierActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_activity_supplier);
-
         etNama = findViewById(R.id.etNamaSupplier);
         etAlamat = findViewById(R.id.etAlamatSupplier);
         etNotelp = findViewById(R.id.etNotelpSupplier);
         createButton = findViewById(R.id.btnCreate);
         editButton = findViewById(R.id.btnUpdateSupplier);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getActionBar().setTitle("Test");
+        //getActionBar().setTitle("Test");s
         createButton.setOnClickListener(this);
         editButton.setOnClickListener(this);
 
@@ -115,18 +118,32 @@ public class AdminSupplierActivity extends AppCompatActivity implements View.OnC
     }
 
     public void onSuccess() {
-        if (getFragmentManager().getBackStackEntryCount() > 0 ) {
-            getFragmentManager().popBackStack();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new AdminSparepartFragment()).commit();
-        }
-        else {
-            super.onBackPressed();
-        }
+        final Intent intent = new Intent(AdminSupplierActivity.this, AdminHomeActivity.class);
+        intent.putExtra("addDialog", 3);
+        finish();
+        startActivity(intent);
     }
 
 
     private void insertSupplier() {
+        if(etNama.getText().toString().isEmpty()) {
+            etNama.setError("Nama supplier tidak boleh kosong");
+            etNama.requestFocus();
+            return;
+        }
+
+        if(etAlamat.getText().toString().isEmpty()){
+            etAlamat.setError("Alamat supplier tidak boleh kosong");
+            etAlamat.requestFocus();
+            return;
+        }
+
+        if(etNotelp.getText().toString().isEmpty()){
+            etNotelp.setError("Nomor telepon supplier tidak boleh kosong");
+            etNotelp.requestFocus();
+            return;
+        }
+
         String nama = etNama.getText().toString();
         String alamat = etAlamat.getText().toString();
         String notelp = etNotelp.getText().toString();
@@ -141,6 +158,7 @@ public class AdminSupplierActivity extends AppCompatActivity implements View.OnC
                 if(responsecode.equals("201")) {
                     Toast.makeText(getApplicationContext(), "Sukses Melakukan Penginputan Sparepart", Toast.LENGTH_SHORT).show();
                     onSuccess();
+
                 }
             }
 

@@ -33,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SparepartAdapter extends RecyclerView.Adapter<SparepartAdapter.ViewHolder> {
+public class    SparepartAdapter extends RecyclerView.Adapter<SparepartAdapter.ViewHolder> {
     private AdminSparepartFragment context;
     public SparepartResponse sparepartList,sparepartLessList;
     List<Sparepart> arrayList = new ArrayList<>();
@@ -57,30 +57,30 @@ public class SparepartAdapter extends RecyclerView.Adapter<SparepartAdapter.View
         viewHolder.namasparepart.setText(sparepartList.getData().get(i).getId().toString());
         viewHolder.stoksparepart.setText(sparepartList.getData().get(i).getStok().toString());
 
-        NotificationManager mNotificationManager =
-                (NotificationManager) viewHolder.mView.getContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("YOUR_CHANNEL_ID",
-                    "YOUR_CHANNEL_NAME",
-                    NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("YOUR_NOTIFICATION_CHANNEL_DISCRIPTION");
-            mNotificationManager.createNotificationChannel(channel);
-        }
-        try{
-            Log.d("array ke", sparepartLessList.getData().get(i).getNama().toString());
-            int j;
-            for(j=0; j<getItemCountLess();j++) {
-                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(viewHolder.mView.getContext(), "YOUR_CHANNEL_ID")
-                        .setSmallIcon(R.mipmap.ic_launcher) // notification icon
-                        .setContentTitle("Stok Sparepart "+sparepartLessList.getData().get(j).getNama().toString()+" Kurang") // title for notification
-                        .setContentText("Silahkan melakukan penambahan stok")// message for notification
-                        .setAutoCancel(true); // clear notification after click
-                mNotificationManager.notify(j, mBuilder.build());
-            }
-        }catch(IndexOutOfBoundsException E)
-        {
-            Log.d("mantap",E.toString());
-        }
+//        NotificationManager mNotificationManager =
+//                (NotificationManager) viewHolder.mView.getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//            NotificationChannel channel = new NotificationChannel("YOUR_CHANNEL_ID",
+//                    "YOUR_CHANNEL_NAME",
+//                    NotificationManager.IMPORTANCE_DEFAULT);
+//            channel.setDescription("YOUR_NOTIFICATION_CHANNEL_DISCRIPTION");
+//            mNotificationManager.createNotificationChannel(channel);
+//        }
+//        try{
+//            Log.d("array ke", sparepartLessList.getData().get(i).getNama().toString());
+//            int j;
+//            for(j=0; j<getItemCountLess();j++) {
+//                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(viewHolder.mView.getContext(), "YOUR_CHANNEL_ID")
+//                        .setSmallIcon(R.mipmap.ic_launcher) // notification icon
+//                        .setContentTitle("Stok Sparepart "+sparepartLessList.getData().get(j).getNama().toString()+" Kurang") // title for notification
+//                        .setContentText("Silahkan melakukan penambahan stok")// message for notification
+//                        .setAutoCancel(true); // clear notification after click
+//                mNotificationManager.notify(j, mBuilder.build());
+//            }
+//        }catch(IndexOutOfBoundsException E)
+//        {
+//            Log.d("mantap",E.toString());
+//        }
 
         viewHolder.mView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -135,8 +135,6 @@ public class SparepartAdapter extends RecyclerView.Adapter<SparepartAdapter.View
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
-//                        Log.d("responsecode", String.valueOf(response.code()));
-//                        Log.d("response", String.valueOf(response.body()));
                         sparepartList.getData().remove(viewHolder.getAdapterPosition());
                         notifyItemRemoved(viewHolder.getAdapterPosition());
                         notifyItemRangeChanged(viewHolder.getAdapterPosition(), sparepartList.getData().size());

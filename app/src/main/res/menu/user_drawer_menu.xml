@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1a">
+        <item
+            android:id="@+id/viewSparepart"
+            android:icon="@drawable/ic_employee"
+            android:title="Data Sparepart" />
+        <item
+            android:id="@+id/nav_sortpriceLowest"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Lowest Price" />
+        <item
+            android:id="@+id/nav_sortpriceHighest"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Highest Price" />
+        <item
+            android:id="@+id/nav_sortstockLowest"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Lowest Stock" />
+        <item
+            android:id="@+id/nav_sortstockHighest"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Highest Stock" />
+    </group>
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_employee"-->
+                <!--android:title="Message" />-->
+        <!--</menu>-->
+    <!--</item>-->
+</menu>

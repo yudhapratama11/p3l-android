@@ -18,12 +18,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.b_laundry.p3l.p3l.R;
-import com.b_laundry.p3l.p3l.adapter.SparepartAdapter;
 import com.b_laundry.p3l.p3l.adapter.SupplierAdapter;
 import com.b_laundry.p3l.p3l.api.Api;
 import com.b_laundry.p3l.p3l.api.RetrofitClient;
-import com.b_laundry.p3l.p3l.models.Sparepart;
-import com.b_laundry.p3l.p3l.models.SparepartResponse;
 import com.b_laundry.p3l.p3l.models.Supplier;
 import com.b_laundry.p3l.p3l.models.SupplierResponse;
 

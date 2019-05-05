@@ -12,10 +12,6 @@
             android:icon="@drawable/ic_spareparts"
             android:title="Spareparts" />
         <item
-            android:id="@+id/nav_branch"
-            android:icon="@drawable/ic_branch"
-            android:title="Cabang" />
-        <item
             android:id="@+id/nav_supplier"
             android:icon="@drawable/ic_employee"
             android:title="Supplier" />
@@ -23,8 +19,30 @@
             android:id="@+id/nav_service"
             android:icon="@drawable/ic_employee"
             android:title="Jasa" />
+        <item
+            android:id="@+id/nav_sales"
+            android:icon="@drawable/ic_employee"
+            android:title="Sales" />
+        <item
+            android:id="@+id/nav_sortprice"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Highest Price" />
+        <item
+            android:id="@+id/nav_sortstock"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Stok Sedikit" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_employee"
+            android:title="History" />
     </group>
-
+    <group android:checkableBehavior="single"
+        android:id="@+id/group3">
+        <item
+            android:id="@+id/nav_procurement"
+            android:icon="@drawable/ic_spareparts"
+            android:title="Pengadaan Sparepart" />
+    </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group2">
         <item
