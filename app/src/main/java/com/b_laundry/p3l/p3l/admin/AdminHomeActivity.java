@@ -159,6 +159,7 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AdminProcurementFragment()).commit();
                 break;
+<<<<<<< HEAD
             case R.id.nav_customer:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AdminCustomerFragment()).commit();
@@ -170,6 +171,19 @@ public class AdminHomeActivity extends AppCompatActivity implements NavigationVi
             case R.id.nav_transaction:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AdminTransactionFragment()).commit();
+=======
+            case R.id.nav_sortprice:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AdminSparepartFragmentPrice()).commit();
+                break;
+            case R.id.nav_sortstock:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AdminSparepartFragmentStok()).commit();
+                break;
+            case R.id.nav_history:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AdminHistoryFragment()).commit();
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
                 break;
             case R.id.nav_logout:
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {

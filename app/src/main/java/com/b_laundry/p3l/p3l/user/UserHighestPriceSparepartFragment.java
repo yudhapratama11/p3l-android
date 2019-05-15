@@ -83,4 +83,15 @@ public class UserHighestPriceSparepartFragment extends Fragment {
             adapter = new UserSparepartAdapter(sparepartList);
             mGridView.setAdapter(adapter);
         }
+<<<<<<< HEAD
+=======
+//    public void generateDataList(SparepartResponse sparepartList, SparepartResponse sparepartLessList) {
+//        recyclerView = recyclerView.findViewById(R.id.card_recycler_view);
+//        sparepartAdapter = new SparepartAdapter(this,sparepartList,sparepartLessList);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setAdapter(sparepartAdapter);
+//        SparepartList = sparepartList.getData();
+//    }
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
 }

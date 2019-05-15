@@ -51,7 +51,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
         </activity>
+<<<<<<< HEAD
         UpdateServiceTransactionActivity
+=======
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
 
         <activity android:name=".user.UserHomeActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".admin.AdminProcurementActivity" android:configChanges="orientation|screenSize">
@@ -61,6 +64,7 @@
                 android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity"
                 />
         </activity>
+<<<<<<< HEAD
 
         <activity android:name=".cs.ServiceTransactionActivity" android:configChanges="orientation|screenSize">
             <!-- Parent activity meta-data to support 4.0 and lowesr -->
@@ -85,12 +89,15 @@
                 android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity"
                 />
         </activity>
+=======
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
         <activity android:name=".admin.AdminCartProcurementActivity" android:configChanges="orientation|screenSize">
             <!-- Parent activity meta-data to support 4.0 and lowesr -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
         </activity>
+<<<<<<< HEAD
         <activity android:name=".cs.SparepartTransactionActivity" android:configChanges="orientation|screenSize">
             <!-- Parent activity meta-data to support 4.0 and lowesr -->
             <meta-data
@@ -103,6 +110,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
         </activity>
+=======
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />

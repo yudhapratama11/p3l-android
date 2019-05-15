@@ -57,6 +57,33 @@ public class    SparepartAdapter extends RecyclerView.Adapter<SparepartAdapter.V
         viewHolder.namasparepart.setText(sparepartList.getData().get(i).getId().toString());
         viewHolder.stoksparepart.setText(sparepartList.getData().get(i).getStok().toString());
 
+<<<<<<< HEAD
+=======
+//        NotificationManager mNotificationManager =
+//                (NotificationManager) viewHolder.mView.getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//            NotificationChannel channel = new NotificationChannel("YOUR_CHANNEL_ID",
+//                    "YOUR_CHANNEL_NAME",
+//                    NotificationManager.IMPORTANCE_DEFAULT);
+//            channel.setDescription("YOUR_NOTIFICATION_CHANNEL_DISCRIPTION");
+//            mNotificationManager.createNotificationChannel(channel);
+//        }
+//        try{
+//            Log.d("array ke", sparepartLessList.getData().get(i).getNama().toString());
+//            int j;
+//            for(j=0; j<getItemCountLess();j++) {
+//                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(viewHolder.mView.getContext(), "YOUR_CHANNEL_ID")
+//                        .setSmallIcon(R.mipmap.ic_launcher) // notification icon
+//                        .setContentTitle("Stok Sparepart "+sparepartLessList.getData().get(j).getNama().toString()+" Kurang") // title for notification
+//                        .setContentText("Silahkan melakukan penambahan stok")// message for notification
+//                        .setAutoCancel(true); // clear notification after click
+//                mNotificationManager.notify(j, mBuilder.build());
+//            }
+//        }catch(IndexOutOfBoundsException E)
+//        {
+//            Log.d("mantap",E.toString());
+//        }
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
 
         viewHolder.mView.setOnClickListener(new View.OnClickListener(){
             @Override

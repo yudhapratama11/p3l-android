@@ -24,6 +24,7 @@
             android:icon="@drawable/ic_employee"
             android:title="Sales" />
         <item
+<<<<<<< HEAD
             android:id="@+id/nav_customer"
             android:icon="@drawable/ic_employee"
             android:title="Customer" />
@@ -35,6 +36,19 @@
             android:id="@+id/nav_transaction"
             android:icon="@drawable/ic_employee"
             android:title="Transaction" />
+=======
+            android:id="@+id/nav_sortprice"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Highest Price" />
+        <item
+            android:id="@+id/nav_sortstock"
+            android:icon="@drawable/ic_employee"
+            android:title="Sort Sparepart Stok Sedikit" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_employee"
+            android:title="History" />
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group3">

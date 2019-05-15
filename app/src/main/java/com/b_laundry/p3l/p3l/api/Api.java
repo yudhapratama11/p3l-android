@@ -9,7 +9,10 @@ import com.b_laundry.p3l.p3l.models.LoginResponse;
 import com.b_laundry.p3l.p3l.models.SalesResponse;
 import com.b_laundry.p3l.p3l.models.ServiceResponse;
 
+<<<<<<< HEAD
 import com.b_laundry.p3l.p3l.models.ServiceTransactionResponse;
+=======
+>>>>>>> d3b1d4f8885d8cccabe2c663eae846647c43701c
 import com.b_laundry.p3l.p3l.models.SparepartProcurementDetailList;
 import com.b_laundry.p3l.p3l.models.SparepartProcurementList;
 import com.b_laundry.p3l.p3l.models.SparepartResponse;
