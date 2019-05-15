@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="153dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="356dp"
+                android:layout_height="187dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="106dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/etNamaSales"
+                    android:layout_alignParentStart="true"
+                    android:text="Nama:"
+                    android:textSize="19dp" />
+
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="101dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/etNotelpSales"
+                    android:text="Supplier:"
+                    android:textSize="19dp" />
+
+                <EditText
+                    android:id="@+id/etNamaSales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:ems="10"
+                    android:hint="Nama Sales"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/etNotelpSales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/etNamaSales"
+                    android:ems="10"
+                    android:hint="NomorTelepon"
+                    android:inputType="number" />
+
+                <Spinner
+                    android:id="@+id/spinnerSupplier"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/etNotelpSales"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+
+                <TextView
+                    android:id="@+id/txtnotelp1"
+                    android:layout_width="146dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/etNotelpSales"
+                    android:layout_alignParentStart="true"
+                    android:text="Nomor Telepon:"
+                    android:textSize="19dp" />
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnCreateSales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:text="Create"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnEditSaless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:text="Edit"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

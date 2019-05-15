@@ -45,6 +45,84 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
         </activity>
+        <activity android:name=".admin.AdminSalesActivity">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
+        </activity>
+        UpdateServiceTransactionActivity
+
+        <activity android:name=".user.UserHomeActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".admin.AdminProcurementActivity" android:configChanges="orientation|screenSize">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity"
+                />
+        </activity>
+
+        <activity android:name=".cs.ServiceTransactionActivity" android:configChanges="orientation|screenSize">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity"
+                />
+        </activity>
+
+        <activity android:name=".cs.UpdateTransactionActivity" android:configChanges="orientation|screenSize">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity"
+                />
+        </activity>
+
+        <activity android:name=".cs.SparepartServiceTransactionActivity" android:configChanges="orientation|screenSize">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity"
+                />
+        </activity>
+        <activity android:name=".admin.AdminCartProcurementActivity" android:configChanges="orientation|screenSize">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
+        </activity>
+        <activity android:name=".cs.SparepartTransactionActivity" android:configChanges="orientation|screenSize">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
+        </activity>
+        <activity android:name=".admin.AdminCustomerActivity" android:configChanges="orientation|screenSize">
+            <!-- Parent activity meta-data to support 4.0 and lowesr -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.b_laundry.p3l.p3l.admin.AdminHomeActivity" />
+        </activity>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" /> <!-- [END fcm_default_icon] -->
+        <service android:name=".Notification.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Notification.MyFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

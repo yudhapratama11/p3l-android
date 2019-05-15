@@ -171,17 +171,6 @@
                     android:hint="Stok Minimal"
                     android:inputType="textImeMultiLine|textPersonName" />
 
-                <EditText
-                    android:id="@+id/etTipe"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignTop="@+id/textView10"
-                    android:ems="10"
-                    android:hint="Stok Minimal"
-                    android:inputType="textImeMultiLine|textPersonName"
-                    android:visibility="invisible" />
-
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="106dp"

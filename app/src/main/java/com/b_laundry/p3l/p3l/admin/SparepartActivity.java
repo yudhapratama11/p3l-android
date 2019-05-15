@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.CursorLoader;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
@@ -37,6 +39,8 @@ import com.b_laundry.p3l.p3l.models.SparepartTypeResponse;
 import com.b_laundry.p3l.p3l.storage.SharedPrefManager;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -55,13 +59,13 @@ import retrofit2.Response;
 
 public class SparepartActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageView sparepartImg,imageViewInsert;
-    private EditText etId, etNama, etStok, etMerk, etHargaBeli, etHargaJual, etPenempatan, etStokMinimal,etTipe;
+    private EditText etId, etNama, etStok, etMerk, etHargaBeli, etHargaJual, etPenempatan, etStokMinimal;
     private Spinner spinnerTipe;
     private Button createButton,buttonInsertImage, editButton;
     private static final int IMG_REQUEST = 777;
     private String selectedId;
     private Bitmap bitmap;
-    private String BASE_URL = "http://10.53.12.30:8000/itemImages/";
+    private String BASE_URL = "http://172.20.10.3:8000/itemImages/";
     private Bitmap ImageBitmap;
     private List<String> listSpinner = new ArrayList<String>();
     private List<String> listSpinnerIdTipe = new ArrayList<String>();
@@ -85,7 +89,6 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
         createButton = findViewById(R.id.btnCreate);
         editButton = findViewById(R.id.btnEditSparepart);
         spinnerTipe = findViewById(R.id.spinnerTipe);
-        etTipe = findViewById(R.id.etTipe);
         buttonInsertImage = (Button)findViewById(R.id.buttonInsert);
         imageViewInsert = findViewById(R.id.imageViewAdd);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -107,7 +110,7 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
             String stokminimal = intent.getStringExtra("stokminimal");
             String gambar = intent.getStringExtra("gambar");
             String tipe = intent.getStringExtra("tipe");
-            Picasso.get().load("BASE_URL" + gambar).into(sparepartImg);
+            Picasso.get().load(BASE_URL + gambar).into(sparepartImg);
             etId.setText(id);
             etNama.setText(nama);
             etStok.setText(stok);
@@ -116,18 +119,15 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
             etMerk.setText(merk);
             etPenempatan.setText(penempatan);
             etStokMinimal.setText(stokminimal);
-            etTipe.setText(tipe);
             buttonInsertImage.setVisibility(View.GONE);
 
             if(String.valueOf(intent.getStringExtra("tujuan")).equals("edit")) { //edit
                 etId.setEnabled(false);
                 sparepartImg.setVisibility(View.GONE);
                 spinnerTipe.setVisibility(View.VISIBLE);
-                etTipe.setVisibility(View.GONE);
                 imageViewInsert.setVisibility(View.VISIBLE);
                 Picasso.get().load(BASE_URL + gambar).into(imageViewInsert);
                 buttonInsertImage.setVisibility(View.VISIBLE);
-                spinnerTipe.setVisibility(View.VISIBLE);
                 createButton.setVisibility(View.GONE);
                 editButton.setVisibility(View.VISIBLE);
                 getSparepartType();
@@ -194,35 +194,31 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            //Title bar back press triggers onBackPressed()
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == android.R.id.home) {
+//            //Title bar back press triggers onBackPressed()
+//            onBackPressed();
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+//
+//    @Override
+//    public void onBackPressed() {
+//        if (getFragmentManager().getBackStackEntryCount() > 0 ) {
+//            getFragmentManager().popBackStack();
+//        }
+//        else {
+//            super.onBackPressed();
+//        }
+//    }
 
-    @Override
-    public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0 ) {
-            getFragmentManager().popBackStack();
-        }
-        else {
-            super.onBackPressed();
-        }
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSuccess() {
-        if (getFragmentManager().getBackStackEntryCount() > 0 ) {
-            getFragmentManager().popBackStack();
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                    new AdminSparepartFragment()).commit();
-        }
-        else {
-            super.onBackPressed();
-        }
+        final Intent intent = new Intent(SparepartActivity.this, AdminHomeActivity.class);
+        intent.putExtra("addDialog", 2);
+        finish();
     }
 
     private void selectImage()
@@ -289,7 +285,7 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
         RequestBody nama = RequestBody.create(MediaType.parse("multipart/form-data"), etNama.getText().toString());
         RequestBody merk = RequestBody.create(MediaType.parse("multipart/form-data"), etMerk.getText().toString());
         RequestBody harga_jual = RequestBody.create(MediaType.parse("multipart/form-data"), etHargaJual.getText().toString());
-        RequestBody harga_beli = RequestBody.create(MediaType.parse("multipart/form-data"), etNama.getText().toString());
+        RequestBody harga_beli = RequestBody.create(MediaType.parse("multipart/form-data"), etHargaBeli.getText().toString());
         RequestBody stok = RequestBody.create(MediaType.parse("multipart/form-data"), etStok.getText().toString());
         RequestBody stokminimal = RequestBody.create(MediaType.parse("multipart/form-data"), etStokMinimal.getText().toString());
         RequestBody penempatan = RequestBody.create(MediaType.parse("multipart/form-data"), etPenempatan.getText().toString());
@@ -337,11 +333,11 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
             etStokMinimal.requestFocus();
             return;
         }
-        if(etTipe.getText().toString().isEmpty()) {
-            etTipe.setError("Tipe tidak boleh kosong");
-            etTipe.requestFocus();
-            return;
-        }
+//        if(etTipe.getText().toString().isEmpty()) {
+//            etTipe.setError("Tipe tidak boleh kosong");
+//            etTipe.requestFocus();
+//            return;
+//        }
 
         if(ImageBitmap != null) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -400,22 +396,31 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
             etStokMinimal.requestFocus();
             return;
         }
-        if(etTipe.getText().toString().isEmpty()) {
-            etTipe.setError("Tipe tidak boleh kosong");
-            etTipe.requestFocus();
-            return;
-        }
+
+        Log.d("id",etId.getText().toString());
+        Log.d("merk",etMerk.getText().toString());
+        Log.d("harga",harga_beli.toString());
+        Log.d("id",harga_jual.toString());
+        Log.d("id",stok.toString());
+        Log.d("id",stokminimal.toString());
+        Log.d("id",penempatan.toString());
+        Log.d("id",body.toString());
+        Log.d("issd",selectedId.toString());
 
         Call<ResponseBody> call = RetrofitClient.getInstance().getApi().addSparepart(id, merk, nama, harga_beli, harga_jual, stok, stokminimal, penempatan, body, tipe);
         call.enqueue(new Callback<ResponseBody>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 String responsecode = String.valueOf(response.code());
-                Log.d("responseInsert", String.valueOf(response.body()));
+                Log.d("responseInsert", String.valueOf(response.errorBody()));
                 Log.d("responseCode", responsecode);
                 if(responsecode.equals("201")) {
                     Toast.makeText(getApplicationContext(), "Sukses Melakukan Penginputan Sparepart", Toast.LENGTH_SHORT).show();
-                    onSuccess();
+                    final Intent intent = new Intent(SparepartActivity.this, AdminHomeActivity.class);
+                    intent.putExtra("addDialog", 1);
+                    startActivity(intent);
+
                 }
             }
 
@@ -427,6 +432,42 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void updateSparepart() {
+        if(etNama.getText().toString().isEmpty()) {
+            etNama.setError("Nama tidak boleh kosong");
+            etNama.requestFocus();
+            return;
+        }
+        if(etMerk.getText().toString().isEmpty()) {
+            etMerk.setError("Merk tidak boleh kosong");
+            etMerk.requestFocus();
+            return;
+        }
+        if(etHargaBeli.getText().toString().isEmpty()) {
+            etHargaBeli.setError("Harga Beli tidak boleh kosong");
+            etHargaBeli.requestFocus();
+            return;
+        }
+        if(etHargaJual.getText().toString().isEmpty()) {
+            etHargaJual.setError("Harga Jual tidak boleh kosong");
+            etHargaJual.requestFocus();
+            return;
+        }
+        if(etStok.getText().toString().isEmpty()) {
+            etStok.setError("Stok tidak boleh kosong");
+            etStok.requestFocus();
+            return;
+        }
+        if(etPenempatan.getText().toString().isEmpty()) {
+            etPenempatan.setError("Penempatan tidak boleh kosong");
+            etPenempatan.requestFocus();
+            return;
+        }
+        if(etStokMinimal.getText().toString().isEmpty()) {
+            etStokMinimal.setError("Penempatan tidak boleh kosong");
+            etStokMinimal.requestFocus();
+            return;
+        }
+
         RequestBody id = RequestBody.create(MediaType.parse("multipart/form-data"), etId.getText().toString());
         String id1 = etId.getText().toString();
         String nama = etNama.getText().toString();
@@ -458,6 +499,9 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
                     String responsecode = String.valueOf(response.code());
                     Log.d("responseUpdatePicture", String.valueOf(response.body()));
                     Log.d("responseCodePicture", responsecode);
+                    final Intent intent = new Intent(SparepartActivity.this, AdminHomeActivity.class);
+                    intent.putExtra("addDialog", 1);
+                    finish();
                 }
 
                 @Override
@@ -471,6 +515,7 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
 
         Call<ResponseBody> call = RetrofitClient.getInstance().getApi().updateSparepart(id1, nama, merk, harga_beli, harga_jual, stok, stokminimal, penempatan, tipe);
         call.enqueue(new Callback<ResponseBody>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 String responsecode = String.valueOf(response.code());
@@ -478,7 +523,9 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
                 Log.d("responseCodeSp", responsecode);
                 if(responsecode.equals("201")) {
                     Toast.makeText(getApplicationContext(), "Sukses Melakukan Penginputan Sparepart", Toast.LENGTH_SHORT).show();
-                    onSuccess();
+                    final Intent intent = new Intent(SparepartActivity.this, AdminHomeActivity.class);
+                    intent.putExtra("addDialog", 1);
+                    finish();
                 }
             }
 
@@ -522,15 +569,6 @@ public class SparepartActivity extends AppCompatActivity implements View.OnClick
             public void onFailure(Call<SparepartTypeResponse> call, Throwable t) {
                 Log.d("Error",t.getMessage());
             }
-//            @Override
-//            public void onResponse(Call<List<Sparepart>> call, Response<List<Sparepart>> response) {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Sparepart>> call, Throwable t) {
-//
-//            }
         });
     }
 }

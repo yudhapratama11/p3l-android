@@ -1,22 +1,29 @@
 package com.b_laundry.p3l.p3l.api;
 
 import com.b_laundry.p3l.p3l.models.BranchResponse;
+import com.b_laundry.p3l.p3l.models.CustomerMotorcycleResponse;
+import com.b_laundry.p3l.p3l.models.CustomerResponse;
 import com.b_laundry.p3l.p3l.models.EmployeesReponse;
+import com.b_laundry.p3l.p3l.models.HistorySparepartResponse;
 import com.b_laundry.p3l.p3l.models.LoginResponse;
+import com.b_laundry.p3l.p3l.models.SalesResponse;
 import com.b_laundry.p3l.p3l.models.ServiceResponse;
-import com.b_laundry.p3l.p3l.models.Sparepart;
+
+import com.b_laundry.p3l.p3l.models.ServiceTransactionResponse;
+import com.b_laundry.p3l.p3l.models.SparepartProcurementDetailList;
+import com.b_laundry.p3l.p3l.models.SparepartProcurementList;
 import com.b_laundry.p3l.p3l.models.SparepartResponse;
+import com.b_laundry.p3l.p3l.models.SparepartTransactionResponse;
 import com.b_laundry.p3l.p3l.models.SparepartTypeResponse;
 import com.b_laundry.p3l.p3l.models.SupplierResponse;
+import com.b_laundry.p3l.p3l.models.TransactionResponse;
 
-import java.util.List;
 
 import okhttp3.MultipartBody;
-import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -30,11 +37,14 @@ import retrofit2.http.Path;
 
 public interface Api {
     @FormUrlEncoded
-    @POST("loginAndroid")
+    @POST("auth/loginAndroid")
     Call<LoginResponse> loginAndroid(
             @Field("username") String username,
             @Field("password") String password
     );
+
+    @GET("historysparepart")
+    Call<HistorySparepartResponse> getHistory();
 
     @GET("sparepart")
     Call<SparepartResponse> getSparepart();
@@ -60,7 +70,17 @@ public interface Api {
             @Part("id_sparepart_type") RequestBody idSparepartType
     );
 
+    @GET("sparepartstokterdikit")
+    Call<SparepartResponse> getSparepartLowStock();
 
+    @GET("sparepartstokterbanyak")
+    Call<SparepartResponse> getSparepartHighStock();
+
+    @GET("sparepartpricetermurah")
+    Call<SparepartResponse> getSparepartLowPrice();
+
+    @GET("sparepartpricetermahal")
+    Call<SparepartResponse> getSparepartHighPrice();
 
     @DELETE("sparepart/{id}")
     Call<ResponseBody> deleteSparepart(
@@ -75,13 +95,57 @@ public interface Api {
             @Path("id") String id
     );
 
+    @GET("sales")
+    Call<SalesResponse> getSales();
+
     @FormUrlEncoded
-    @POST("supplierAndroid")
+    @POST("supplier")
     Call<ResponseBody> addSupplier(
             @Field("nama") String nama,
             @Field("nomor_telepon") String nomor_telepon,
             @Field("alamat") String alamat
 
+    );
+
+    @FormUrlEncoded
+    @POST("procurementAndroid")
+    Call<ResponseBody> addSparepartProcurement(
+            @Field("id_sales") String id_sales
+            );
+
+    @FormUrlEncoded
+    @POST("procurementDetailAndroid")
+    Call<ResponseBody> addSparepartDetailProcurement(
+            @Field("id_sparepart") String id_sparepart,
+            @Field("id_sparepart_procurement") String nomor_telepon,
+            @Field("jumlah") Integer jumlah,
+            @Field("satuan_harga") Integer satuan_harga,
+            @Field("subtotal") Integer subtotal
+    );
+
+    @GET("procurementDetailAndroid/{id}")
+    Call<SparepartProcurementDetailList> getProcurementDetailFromId(
+            @Path("id") String id
+    );
+
+    @GET("sparepartprocurement")
+    Call<SparepartProcurementList> getProcurement(
+    );
+
+    @FormUrlEncoded
+    @PATCH("procurementAndroid/{id}")
+    Call<ResponseBody> verifProcurement(
+        @Path("id") String id,
+        @Field("id_sales") String id_sales
+    );
+
+    @FormUrlEncoded
+    @PATCH("procurementDetailAndroid/{id}")
+    Call<ResponseBody> verifProcurementDetail(
+        @Path("id") String id,
+        @Field("jumlah") Integer jumlah,
+        @Field("satuan_harga") Integer satuan_harga,
+        @Field("subtotal") Integer subtotal
     );
 
     @DELETE("supplier/{id}")
@@ -111,10 +175,15 @@ public interface Api {
             @Path("id") String id
     );
 
+    @DELETE("sales/{id}")
+    Call<ResponseBody> deleteSales(
+            @Path("id") String id
+    );
+
     @GET("supplier")
     Call<SupplierResponse> getSuppliers();
 
-    @GET("serviceAndroid")
+    @GET("service")
     Call<ServiceResponse> getServices();
 
     @FormUrlEncoded
@@ -122,6 +191,23 @@ public interface Api {
     Call<ResponseBody> addService(
             @Field("nama") String nama,
             @Field("harga") Integer harga
+    );
+
+    @FormUrlEncoded
+    @POST("sales")
+    Call<ResponseBody> addSales(
+            @Field("nama") String nama,
+            @Field("nomor_telepon") String nomor_telepon,
+            @Field("id_supplier") Integer id_supplier
+    );
+
+    @FormUrlEncoded
+    @PATCH("sales/{id}")
+    Call<ResponseBody> editSales(
+            @Path("id") Integer id,
+            @Field("nama") String nama,
+            @Field("nomor_telepon") String nomor_telepon,
+            @Field("id_supplier") Integer id_supplier
     );
 
     @FormUrlEncoded
@@ -152,4 +238,78 @@ public interface Api {
             @Part("id") RequestBody id,
             @Part MultipartBody.Part gambar
     );
+
+    @GET("transaction")
+    Call<TransactionResponse> getTransaction();
+
+    @GET("customer")
+    Call<CustomerResponse> getCustomer();
+
+    @GET("customermotorcyclebyid/{id}")
+    Call<CustomerMotorcycleResponse> getCustomerMotorcycleById(
+        @Path("id") String Id
+    );
+
+    @FormUrlEncoded
+    @POST("customer")
+    Call<ResponseBody> addCustomer(
+            @Field("nama") String nama,
+            @Field("nomor_telepon") String nomor_telepon,
+            @Field("alamat") String alamat
+    );
+
+    @FormUrlEncoded
+    @POST("transactionAndroid")
+    Call<ResponseBody> addTransaction(
+            @Field("status") Integer status,
+            @Field("id_transaction_type") Integer id_transaction_type,
+            @Field("subtotal") Integer subtotal,
+            @Field("id_customer") Integer id_customer,
+            @Field("id_employee") String id_employee
+    );
+
+    @FormUrlEncoded
+    @PATCH("transactionAndroid/{id}")
+    Call<ResponseBody> updateTransaction(
+            @Path("id") String id,
+            @Field("id_transaction_type") Integer id_transaction_type
+    );
+
+    @FormUrlEncoded
+    @POST("spareparttransaction")
+    Call<ResponseBody> addSparepartTransaction(
+            @Field("id_transaction") String id_transaction,
+            @Field("id_sparepart") String id_sparepart,
+            @Field("jumlah") Integer jumlah,
+            @Field("harga_satuan") Integer harga_satuan,
+            @Field("subtotal") Integer subtotal
+    );
+
+    @FormUrlEncoded
+    @POST("servicetransaction")
+    Call<ResponseBody> addServiceTransaction(
+            @Field("id_transaction") String id_transaction,
+            @Field("id_service") Integer id_service,
+            @Field("id_customer_motorcycle") Integer id_customer_motorcycle,
+            @Field("id_montir_onduty") Integer id_montir_onduty,
+            @Field("status_montir_onduty") Integer status_montir_onduty,
+            @Field("subtotal") Integer subtotal
+    );
+
+    @DELETE("customer/{id}")
+    Call<ResponseBody> deleteCustomer(
+            @Path("id") String id
+    );
+
+    @GET("spareparttransaction/{id}")
+    Call<SparepartTransactionResponse> getSparepartTransactionDetailFromId(
+            @Path("id") String id
+    );
+
+    @GET("servicetransaction/{id}")
+    Call<ServiceTransactionResponse> getServiceTransactionDetailFromId(
+            @Path("id") String id
+    );
+
+
 }

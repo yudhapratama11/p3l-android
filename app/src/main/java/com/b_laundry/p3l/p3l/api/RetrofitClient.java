@@ -5,15 +5,11 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static final String BASE_URL = "http://192.168.100.53:8000/api/";
+    private static String BASE_URL = "http://192.168.100.145:8000/api/";
     private static RetrofitClient mInstance;
     private static Retrofit retrofit3;
     private Retrofit retrofit;

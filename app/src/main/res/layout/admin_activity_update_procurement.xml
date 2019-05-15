@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="375dp"
+                android:layout_height="282dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="65dp"
+                    android:text="Sales:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+                    android:layout_above="@+id/textView13"
+                    android:layout_alignStart="@+id/textView10"
+                    android:layout_marginBottom="-109dp"
+                    android:text="Status"
+                    android:textSize="19dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerSalesUpdate"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView10"
+                    android:layout_marginStart="64dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/txtJlhSparepartProcUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView10"
+                    android:layout_below="@+id/textView12"
+                    android:layout_marginTop="-142dp"
+                    android:ems="10"
+                    android:hint="mis. 5"
+                    android:inputType="number" />
+
+                <Button
+                    android:id="@+id/btnVerificationProcurement"
+                    android:layout_width="117dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="30dp"
+                    android:text="Verifikasi"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="212dp"
+                    android:layout_height="42dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/spinnerSalesUpdate"
+                    android:layout_marginTop="109dp"
+                    android:text="TextView"
+                    android:textSize="20dp"
+                    android:gravity="center"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/cardview_procurement"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"></android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

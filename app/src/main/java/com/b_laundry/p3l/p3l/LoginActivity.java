@@ -7,12 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.b_laundry.p3l.p3l.admin.AdminHomeActivity;
+import com.b_laundry.p3l.p3l.api.Api;
 import com.b_laundry.p3l.p3l.models.LoginResponse;
 import com.b_laundry.p3l.p3l.api.RetrofitClient;
 import com.b_laundry.p3l.p3l.storage.SharedPrefManager;
+import com.b_laundry.p3l.p3l.user.UserHomeActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText editTextUsername;
     private EditText editTextPassword;
+    private TextView textViewUser;
     //private Button btnLogin;
 
     @Override
@@ -36,10 +40,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        textViewUser = findViewById(R.id.textViewUser);
         editTextUsername = findViewById(R.id.txtUsername);
         editTextPassword = findViewById(R.id.txtPassword);
         getSupportActionBar().hide();
         findViewById(R.id.buttonLogin).setOnClickListener(this);
+
+        textViewUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, UserHomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
     }
 
     public void userLogin()
@@ -69,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 LoginResponse loginResponse = response.body();
                 int Responsecode = response.code();
 //
-//               Log.d("responsecode", String.valueOf(Responsecode));
+               Log.d("responsecode", String.valueOf(Responsecode));
                if(Responsecode != 200)
                {
                    try {

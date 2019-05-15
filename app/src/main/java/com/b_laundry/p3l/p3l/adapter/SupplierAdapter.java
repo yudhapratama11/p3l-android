@@ -62,6 +62,7 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.ViewHo
                 intent.putExtra("notelp", supplierList.getData().get(i).getNomorTelepon().toString());
                 intent.putExtra("tujuan", "edit");
                 v.getContext().startActivity(intent);
+
             }
         });
 

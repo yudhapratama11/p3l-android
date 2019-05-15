@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:orientation="horizontal"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android_layout_width="match_parent"
+    android:layout_margin="5dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardMaxElevation="15dp"
+    android:id="@+id/card_view"
+    card_view:cardElevation="10dp"
+    card_view:contentPadding="5dp"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardPreventCornerOverlap="false"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/sparepartImgView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/txtViewNama"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sparepartImgView"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:text="Nama Spareepart"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorAccent"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/txtViewHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtViewStok"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:text="Harga"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/txtViewHarga2"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtViewHarga"
+            android:layout_toStartOf="@+id/txtViewHarga"
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="Harga: Rp."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/txtViewStok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtViewNama"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:text="Stok"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/txtViewStok2"
+            android:layout_width="43dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtViewNama"
+            android:layout_toStartOf="@+id/txtViewStok"
+            android:padding="5dp"
+            android:text="Stok"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="375dp"
+                android:layout_height="257dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transaction_background"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+                    android:layout_above="@+id/spinnerCustomer"
+                    android:layout_alignStart="@+id/textViewTipe"
+                    android:text="Pelanggan:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/textViewTipe"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+
+                    android:layout_above="@+id/spinnerTipeTransaksi"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="-23dp"
+                    android:layout_marginStart="70dp"
+                    android:text="Tipe Transaksi"
+                    android:textSize="19dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerCustomer"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignStart="@+id/textView20"
+                    android:layout_centerVertical="true"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/spinnerTipeTransaksi"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="33dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignStart="@+id/textView10"
+                    android:layout_marginBottom="62dp"
+                    android:text="Customer Service On Duty:"
+                    android:textSize="19dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerCS"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignStart="@+id/textView10"
+                    android:layout_below="@+id/textView20"
+                    android:layout_marginTop="-62dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sparepartView"
+                android:layout_width="375dp"
+                android:layout_height="294dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transaction_background"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/txtViewSparepart"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/txtJlhSparepart"
+                    android:text="Sparepart:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/txtViewSparepart7"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/txtViewSparepart"
+                    android:layout_marginTop="80dp"
+                    android:text="Harga Satuan:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/txtViewSparepart2"
+                    android:layout_width="101dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignStart="@+id/txtViewSparepart"
+                    android:layout_marginBottom="89dp"
+                    android:text="Jumlah:"
+                    android:textSize="19dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerSparepart"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/txtViewSparepart"
+                    android:layout_marginStart="64dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/txtJlhSparepart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/spinnerSparepart"
+                    android:layout_below="@+id/txtViewSparepart2"
+                    android:layout_marginTop="-89dp"
+                    android:ems="10"
+                    android:hint="mis. 5"
+                    android:inputType="number" />
+                <!--<EditText-->
+                <!--android:id="@+id/txtJlhSparepartProcUpdate"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignStart="@+id/textViewSparepart"-->
+                <!--android:layout_below="@+id/textView12"-->
+                <!--android:layout_marginTop="-142dp"-->
+                <!--android:ems="10"-->
+                <!--android:hint="mis. 5"-->
+                <!--android:inputType="number" />-->
+
+                <EditText
+                    android:id="@+id/txtHargaSatuanSparepart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/txtViewSparepart"
+                    android:layout_below="@+id/txtViewSparepart7"
+                    android:ems="10"
+                    android:hint="mis. 5"
+                    android:inputType="number" />
+
+                <Button
+                    android:id="@+id/btnAddSparepart"
+                    android:layout_width="78dp"
+                    android:layout_height="33dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Tambah"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/serviceView"
+                android:layout_width="375dp"
+                android:layout_height="386dp"
+                android:layout_gravity="center"
+                android:background="@drawable/transaction_background"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/txtViewSparepart3"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/spinnerMotor"
+                    android:layout_alignStart="@+id/spinnerMotor"
+                    android:text="Motor:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/txtViewSparepart5"
+                    android:layout_width="146dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/spinnerMontir"
+                    android:layout_alignStart="@+id/spinnerMotor"
+                    android:text="Montir On Duty:"
+                    android:textSize="19dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerService"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="37dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtViewSparepart4"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/spinnerService"
+                    android:layout_alignStart="@+id/spinnerMotor"
+                    android:layout_marginBottom="-35dp"
+                    android:text="Service:"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/txtViewSparepart8"
+                    android:layout_width="159dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/spinnerMotor"
+                    android:layout_marginTop="91dp"
+                    android:text="Harga Satuan:"
+                    android:textSize="19dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerMotor"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="119dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+
+                <Spinner
+                    android:id="@+id/spinnerMontir"
+                    android:layout_width="214dp"
+                    android:layout_height="37dp"
+                    android:layout_above="@+id/btnAddService"
+                    android:layout_centerHorizontal="true"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btnAddService"
+                    android:layout_width="78dp"
+                    android:layout_height="34dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Tambah"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/txtHargaSatuanService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtViewSparepart8"
+                    android:layout_centerHorizontal="true"
+                    android:ems="10"
+                    android:hint="mis. 5"
+                    android:inputType="number" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="375dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <Button
+                    android:id="@+id/btnAddTransaction"
+                    android:layout_width="224dp"
+                    android:layout_height="41dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Tambah Transaksi"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:id="@+id/txtService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Service"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <android.support.v7.widget.RecyclerView
+
+                    android:id="@+id/cardview_service1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"></android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:id="@+id/txtSparepart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="5dp"
+                    android:text="Sparepart"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/cardview_sparepart1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"></android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
